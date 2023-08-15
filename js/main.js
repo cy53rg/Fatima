@@ -87,6 +87,23 @@ $(window).on('load', function() {
 	});
 
 
+	// Wait for the document to be fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+    // Get all the "More" buttons and add a click event listener to each
+    const moreButtons = document.querySelectorAll(".more-button");
+    moreButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+            // Find the corresponding card for the clicked button
+            const card = button.closest(".card");
+            // Toggle the visibility of the paragraph inside the card
+            const paragraph = card.querySelector(".txt p");
+            paragraph.classList.toggle("show");
+        });
+    });
+});
+
+	
+
 
 	/*------------------
 		Circle progress
