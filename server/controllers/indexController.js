@@ -2,18 +2,31 @@ const {validationResult, matchedData} = require('express-validator');
 const Contact = require('../models/Contact');
 const Post = require('../models/Post');
 const Teacher = require('../models/Teacher');
+const Banner = require('../models/Banner');
 class IndexController{
    home(req, res){
-        res.render('./pages/index', {
-            layout: './layouts/layout'
-        })
+
+        (async()=>{
+            try {
+                let banner = await Banner.findOne({where:{title:'home'}})
+                res.render('./pages/index', {
+                    banner,
+                    layout: './layouts/layout'
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        })()
+        
     }
    about(req, res){
         (async()=>{
             try {
+                let banner = await Banner.findOne({where:{title:'about'}})
                 let contents = await Teacher.findAll()
                 res.render('./pages/about', {
                     contents,
+                    banner,
                     layout: './layouts/layout'
                 })
             } catch (error) {
@@ -30,9 +43,13 @@ class IndexController{
    gallery(req, res){
         (async()=>{
             try {
+                let banner = await Banner.findOne({where:{title:'gallery'}})
                let contents = await Post.findAll()
+               console.log(banner)
+
                 res.render('./pages/gallery', {
                     contents,
+                    banner,
                     layout: './layouts/layout'
                 })
                 
