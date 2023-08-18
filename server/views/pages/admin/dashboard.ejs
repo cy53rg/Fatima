@@ -21,8 +21,84 @@
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
+                <div class="w-100 d-flex justify-content-end m-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add to Banner
+                    </button>
+                </div>
                 <div class="mb-4">
+                    <!-- Button trigger modal -->
+                   
                     
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add To Gallery</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form action="/dashboard/banner" method="POST" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Title</label>
+                                  
+                                    <select name="title" required class="form-control" id="title">
+                                        <option>Select Page</option>
+                                        <option value="home">Home</option>
+                                        <option value="about">About</option>
+                                        <option value="contact">Contact</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="mb-3">
+                                  <label for="description" class="form-label">Description</label>
+                                  <textarea type="text" name="description" required class="form-control" id="password">
+                                  </textarea>
+                                </div> -->
+                                <div class="mb-3">
+                                  <label for="image" class="form-label">image</label>
+                                  <input type="file" name="image" required class="form-control" id="image">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container mt-5 px-2">
+
+                        <table class="table table-responsive table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">title</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <%if(contents != undefined) {%>
+                                    <%contents.forEach((content, i)=>{ %>
+                                        <tr>
+
+                                        <th scope="row"><%= i += 1 %></th>
+                                        <td><%= typeof content.title != undefined ? content.title : null%></td>
+                                        <td><img src="<%= typeof content.image != undefined ? content.image : null%>" alt="image" style="width: 50px; border-radius:50;"></td>
+                                        <td>
+                                            <a class="p-1 btn btn-sm btn-danger" href="banner/delete?id=<%= typeof content.id != undefined ? content.id : null%>">Delete</a>
+                                        </td>
+                                        </tr>
+                    
+                                    <%})%>
+                                <%}%>
+                            </tbody>
+                          </table>
+                        
+                    </div>
                 </div>
             </div>
         </main>

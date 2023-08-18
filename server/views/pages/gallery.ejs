@@ -80,134 +80,25 @@
 			</ul>                                       
 			<div class="row course-items-area">
 				<!-- course -->
-				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
-					<div class="course-item">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								
+				<% if(contents != undefined){%>
+                    <% contents?.forEach((content, i)=>{ %>
+                        <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+							<div class="course-item">
+								<div class="course-thumb set-bg" data-setbg="<%= typeof content.image != undefined ? content.image : 'img/s2.jpg' %>">
+									
+								</div>
+								<div class="course-info">
+									<div class="course-text">
+										<h5><%= typeof content.title != undefined ? content.title : 'Title' %></h5>
+										<p><%= typeof content.description != undefined ? content.description : 'Description'%></p>
+										
+									</div>
+									
+								</div>
 							</div>
-							
 						</div>
-					</div>
-				</div>
-				<!-- course -->
-				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
-					<div class="course-item">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				
-				<!-- course -->
-				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
-					<div class="course-item">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<!-- course -->
-				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
-					<div class="course-item">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<!-- course -->
-				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
-					<div class="course-item">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<!-- course -->
-				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
-					<div class="course-item">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<!-- course -->
-				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
-					<div class="course-item">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<!-- course -->
-				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
-					<div class="course-item">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
+                    <%})%>
+                <%}%>
 				
 			</div>
 			

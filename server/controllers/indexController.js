@@ -28,19 +28,18 @@ class IndexController{
         })
     }
    gallery(req, res){
-        let contents;
         (async()=>{
             try {
-                contents = await Post.findAll()
+               let contents = await Post.findAll()
+                res.render('./pages/gallery', {
+                    contents,
+                    layout: './layouts/layout'
+                })
                 
             } catch (error) {
                 console.log(error)
             }
         })()
-        res.render('./pages/gallery', {
-            contents,
-            layout: './layouts/layout'
-        })
     }
     contactPost(req, res){
         const errors = validationResult(req).errors

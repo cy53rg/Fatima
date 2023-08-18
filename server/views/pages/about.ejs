@@ -68,7 +68,7 @@
     </section>
     <section class="light">
         <div class="container py-2">
-            <div class="h1 text-center text-dark" id="pageHeaderTitle">Our Vission</div>		
+            <div class="h1 text-center text-dark" id="pageHeaderTitle">Our Vision</div>		
             <article class="postcard light red">
                 <a class="postcard__img_link" href="#">
                     <img class="postcard__img" src="img/s2.jpg" alt="Image Title" />	
@@ -96,41 +96,16 @@
                     <%contents?.forEach((content, i)=>{ %>
                         <article class="card">
                             <div class="image">
-                              <img src="<%= typeof content.image != undefined ? content.image : 'img/s2.jpg' %>" alt="mixed vegetable salad in a mason jar.">
+                              <img src="<%= content.image != undefined ? content.image : 'img/s2.jpg' %>" alt="mixed vegetable salad in a mason jar.">
                               <p class="note text-light" style="background-color: #B3C2F2;"><%= typeof content.role != undefined ? content.role : 'Staff' %></p>
                             </div>
                             <div class="card__content">
                               <h2 class="card_title " style="color: black;"><%= typeof content.fullName != undefined ? content.fullName : 'Staff' %></h2>
-                              <h3 class="label " style="color: black;">Add tdfds</h3>
+                              <h3 class="label " style="color: black;"><%= typeof content.description != undefined ? content.description : 'Staff' %></h3>
                             </div>
                           </article>
                     <%})%>
                 <%}%>
-              
-          
-              <article class="card">
-                <div class="image">
-                  <img src="img/s2.jpg" alt="a Reuben sandwich on wax paper.">
-                  <p class="note text-light" style="background-color: #fc1919;">Principal</p>
-                </div>
-          
-                <div class="card__content ">
-                  <h2 class="card_title " style="color: black;">Reuben</h2>
-                  <h3 class="label"style="color: black">"kjhadfj</h3>
-                  <p class="add-ons " style="color: black;">Sdfsfdfs</p>
-                </div>
-              </article>
-          
-              <article class="card">
-                <div class="image">
-                  <img src="img/s2.jpg" alt="A side view of a plate of figs and berries.">
-                  <p class="note text-light" style="background-color: #f8d62c;">headmaster</p>
-                </div>
-                <div class="card__content darkt">
-                  <h2 class="card_title " style="color: black;">Fig Berry</h2>
-                  <p class="list-label " style="color: black;">Choose</p>
-                </div>
-              </article>
             </div>
           </main>
           

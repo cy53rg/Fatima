@@ -17,6 +17,8 @@ const TeacherController = new TeacherControllers()
 
 
 Router.get('/',AuthCheck, DashboardController.index)
+Router.post('/banner',AuthCheck, DashboardController.save)
+Router.get('/banner/delete',AuthCheck, DashboardController.delete)
 Router.get('/logout',AuthCheck, DashboardController.logout)
 
 
