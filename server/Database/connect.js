@@ -1,5 +1,5 @@
 const {Sequelize} = require('sequelize')
-
+// const User = require('../models/User');
 const sequelize = new Sequelize('fatima_school','root', null,{
     host: 'localhost',
     dialect: 'mysql'

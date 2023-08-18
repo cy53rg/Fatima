@@ -1,6 +1,9 @@
-const {Model, DataTypes} = require('sequelize')
-const {sequelize} = require('../Database/connect')
-
+const {Model, Sequelize, DataTypes} = require('sequelize')
+const {DBConnect} = require('../Database/connect')
+const sequelize = new Sequelize('fatima_school','root', null,{
+    host: 'localhost',
+    dialect: 'mysql'
+})
 class Post extends Model{}
 
 Post.init({
@@ -13,19 +16,25 @@ Post.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    details: {
+    description: {
         type: DataTypes.STRING,
         allowNull: false
+    }, 
+    image:{
+        type: DataTypes.STRING,
     }
 
-}, {sequelize, modelNames: 'Post'})
+}, {sequelize, modelNames: 'Post'});
 
-async()=>{
-    const post =await Post.create({
-        title: "how to become bad",
-        details: "jiberish is also good"
-    })
-    console.log(post)
-    return await sequelize.sync({alter: true})
+
+(async()=>{
     
-}
+    try {
+        await sequelize.sync()
+        // await sequelize.sync({alter: true})
+    } catch (error) {
+            console.log(error)
+    }
+    
+})()
+module.exports = Post

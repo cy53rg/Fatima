@@ -1,0 +1,17 @@
+<div class="container-fluid mx-auto d-flex align-content-center justify-content-center  bg-dark" style="padding: 8%; height: 100vh;">
+   <div class="card mt-10" style=" margin-top: 100px; height: 300px; width:500px; z-index:-0">
+    <form action="/login" method="POST">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" name="username" required class="form-control" id="username" aria-describedby="username">
+          <div id="username" class="form-text">Your username</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" name="password" required class="form-control" id="password">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+   </div>
+</div>

@@ -18,9 +18,11 @@
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
 						<div class="section-title text-white text-left">
+                            
 							<h2>Get in Touch</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. </p>
 						</div>
+                        <%include('../partials/messages.ejs')%>
 						<form class="contact-form" action="/contact" method="POST",>
 							<input type="text" name="names" placeholder="fullName">
 							<input type="text"  name="email" type="email" placeholder="Your E-mail">

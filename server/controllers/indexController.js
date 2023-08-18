@@ -1,21 +1,25 @@
 const {validationResult, matchedData} = require('express-validator');
 const Contact = require('../models/Contact');
+const Post = require('../models/Post');
+const Teacher = require('../models/Teacher');
 class IndexController{
-    static getIndexInstance(){
-        return instance ? instance : new Index();
-    }
-
    home(req, res){
-
         res.render('./pages/index', {
             layout: './layouts/layout'
         })
     }
    about(req, res){
-
-        res.render('./pages/about', {
-            layout: './layouts/layout'
-        })
+        (async()=>{
+            try {
+                let contents = await Teacher.findAll()
+                res.render('./pages/about', {
+                    contents,
+                    layout: './layouts/layout'
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        })()
     }
    contact(req, res){
 
@@ -24,33 +28,50 @@ class IndexController{
         })
     }
    gallery(req, res){
-
+        let contents;
+        (async()=>{
+            try {
+                contents = await Post.findAll()
+                
+            } catch (error) {
+                console.log(error)
+            }
+        })()
         res.render('./pages/gallery', {
+            contents,
             layout: './layouts/layout'
         })
     }
     contactPost(req, res){
         const errors = validationResult(req).errors
-
-        if(errors.length == 0){
+        // return console.log(errors)
+        if(errors.length <= 0){
             const result = matchedData(req)
-            return console.log(result)
             async function save(){
                 try {
-                    const saved = await new Contact.create({
-                        'name': result.names,
+                    const saved = await Contact.create({
+                        'names': result.names,
                         'subject': result.subject,
                         'email': result.email,
                         'message': result.message,
                     })
-                    console.log(saved)
+                    console.log(saved.toJSON())
+                    req.flash('successMsg', 'Sent successfully')
+                    req.flash('successMsg', 'We contact you through you email')
+                    return res.redirect('/contact')
                 } catch (error) {
-                    
+                    console.log(error)
                 }
             }
+            
             save()
         }
-        console.log(errors)
+        // return (console.log(errors))
+        errors?.forEach((err)=>{
+            req.flash('errorMsg', (err.msg.toString()))
+        })
+        return console.log(res)
+        return res.redirect('/contact')
     }
 }
 

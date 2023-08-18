@@ -9,17 +9,8 @@ Teacher.init({
         primaryKey: true,
         allowNull: false
     },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
     email: {
         type: DataTypes.STRING,
-        allowNull: false
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false
     },
     fullName: {
         type: DataTypes.STRING,
@@ -27,10 +18,22 @@ Teacher.init({
     },
     role: {
         type: DataTypes.STRING,
-        allowNull: false
     },
-})
+    description: {
+        type: DataTypes.STRING,
+    },
+    image: {
+        type: DataTypes.STRING,
+    },
+}, {sequelize, modelName: 'Teacher'});
 
 (async()=>{
-    return await sequelize.sync({alter: true})
-})
+    try {
+        await sequelize.sync()
+        // await sequelize.sync({alter: true})
+    } catch (error) {
+            console.log(error)
+    }
+})()
+
+module.exports =Teacher

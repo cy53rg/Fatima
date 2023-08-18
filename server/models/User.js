@@ -1,7 +1,11 @@
-const {Model, DataTypes} =  require('sequelize')
-const {sequelize} = require('../Database/connect')
+const {Model, Sequelize, DataTypes} =  require('sequelize')
+const sequelize = new Sequelize('fatima_school','root', null,{
+    host: 'localhost',
+    dialect: 'mysql'
+})
 
 class User extends Model{}
+
 User.init({
     id: {
         type: DataTypes.INTEGER,
@@ -27,11 +31,21 @@ User.init({
     },
     role: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'Admin'
     },
-    created_at: {type: DataTypes.DATE}
-}, {sequelize, modelName: 'User'})
+}, {sequelize, modelName: 'User'});
+
+
 
 (async()=>{
-    return await sequelize.sync({alter: true})
-})
+    try {
+        await sequelize.sync()
+        // await sequelize.sync({alter: true})
+        
+    } catch (error) {
+        console.log(error)
+    }
+})()
+
+module.exports = User;

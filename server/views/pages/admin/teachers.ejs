@@ -1,0 +1,118 @@
+<!-- Start preloader -->
+<div id="preloader"></div>
+<!-- End preloader -->
+
+<!-- navbar -->
+<%- include('../../partials/admin/nav') %>
+
+
+<%- include('../../partials/messages') %>
+<div id="layoutSidenav">
+    
+    <!-- sidenav -->
+    <%- include('../../partials/admin/sidenav') %>
+
+    <div id="layoutSidenav_content" >
+        <main>
+            
+            <div class="container-fluid px-4 row">
+               
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+                <div class="w-100 d-flex justify-content-end m-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add Staff
+                    </button>
+                </div>
+                  <div class="">
+                    <!-- Button trigger modal -->
+                   
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Staff</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form action="/dashboard/staff" method="POST" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                  <label for="fullname" class="form-label">Fullname</label>
+                                  <input type="text" name="fullname" required class="form-control" id="fullname">
+                                </div>
+                                <div class="mb-3">
+                                <div class="mb-3">
+                                  <label for="email" class="form-label">Email</label>
+                                  <input type="email" name="email" required class="form-control" id="email">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="role" class="form-label">Office</label>
+                                  <input type="text" name="role" required class="form-control" id="role">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="description" class="form-label">Description</label>
+                                  <textarea name="description" required class="form-control" id="password"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="image" class="form-label">image</label>
+                                  <input type="file" name="image" required class="form-control" id="image">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+                    
+                  <div class="container mt-5 px-2">
+
+                    <table class="table table-responsive table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Fullname</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">description</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <%if(contents != undefined) {%>
+                                <%contents.forEach((staff, i)=>{ %>
+                                    <tr>
+
+                                    <th scope="row"><%= i += 1 %></th>
+                                    <td><img src="<%= typeof staff.image != undefined ? staff.image : null%>" alt="image" style="width: 50px; border-radius:50;"></td>
+                                    <td><%= typeof staff.fullName != undefined ? staff.fullName : null%></td>
+                                    <td><%= typeof staff.email != undefined ? staff.email : null%></td>
+                                    <td><%= typeof staff.office != undefined ? staff.office : null%></td>
+                                    <td><%= typeof staff.description != undefined ? staff.description : null%></td>
+                                    <td>
+                                        <a class="p-1 btn btn-sm btn-danger" href="gallery/delete?id=<%= typeof staff.id != undefined ? staff.id : null%>">Delete</a>
+                                    </td>
+                                    <td>
+                                        <a class="p-1 btn btn-sm btn-warning" href="gallery/edit?id=<%= typeof staff.id != undefined ? staff.id : null%>">Edit</a>
+                                    </td>
+                                    </tr>
+                
+                                <%})%>
+                            <%}%>
+                        </tbody>
+                      </table>
+                    
+                </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

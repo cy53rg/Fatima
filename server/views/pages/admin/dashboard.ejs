@@ -1,0 +1,30 @@
+<!-- Start preloader -->
+<div id="preloader"></div>
+<!-- End preloader -->
+
+<!-- navbar -->
+<%- include('../../partials/admin/nav') %>
+
+
+<%- include('../../partials/messages') %>
+<div id="layoutSidenav">
+    
+    <!-- sidenav -->
+    <%- include('../../partials/admin/sidenav') %>
+
+    <div id="layoutSidenav_content" >
+        <main>
+            
+            <div class="container-fluid px-4 row">
+               
+                <h1 class="mt-4 text-white">Welcome <%= typeof user != undefined ? user.username: ''%></h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+                <div class="mb-4">
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

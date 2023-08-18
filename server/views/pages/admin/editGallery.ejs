@@ -1,0 +1,61 @@
+<!-- Start preloader -->
+<div id="preloader"></div>
+<!-- End preloader -->
+
+<!-- navbar -->
+<%- include('../../partials/admin/nav') %>
+
+
+<%- include('../../partials/messages') %>
+<div id="layoutSidenav">
+    
+    <!-- sidenav -->
+    <%- include('../../partials/admin/sidenav') %>
+
+    <div id="layoutSidenav_content" >
+        <main>
+            
+            <div class="container-fluid px-4 row">
+               
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+                <div class="mb-4">
+                    
+                    
+                    <div class="container mt-5 px-2">
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Gallery</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form action="/dashboard/gallery/edit" method="POST" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                  <label for="title" class="form-label">Title</label>
+                                  <input type="text" name="title" value="<%= typeof %>" required class="form-control" id="title">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="description" class="form-label">Description</label>
+                                  <textarea type="text" name="description" required class="form-control" id="password">
+                                  </textarea>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="image" class="form-label">image</label>
+                                  <input type="file" name="image" required class="form-control" id="image">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

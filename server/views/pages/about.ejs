@@ -74,7 +74,7 @@
                     <img class="postcard__img" src="img/s2.jpg" alt="Image Title" />	
                 </a>
                 <div class="postcard__text t-dark">
-                    <h1 class="postcard__title red"><a href="#">Our Vission</a></h1>
+                    <h1 class="postcard__title red"><a href="#">Our Vision</a></h1>
                     <div class="postcard__subtitle small">
         
                             <i class="fas fa-calendar-alt mr-2"></i>more to know
@@ -92,17 +92,21 @@
 
         <main class="main bod">
             <div class="cards">
-              <article class="card">
-                <div class="image">
-                  <img src="img/s2.jpg" alt="mixed vegetable salad in a mason jar.">
-                  <p class="note text-light" style="background-color: #B3C2F2;">chaplin</p>
-                </div>
-                <div class="card__content">
-                  <h2 class="card_title " style="color: black;">john</h2>
-                  <h3 class="label " style="color: black;">Add tdfds</h3>
-                  <p class="add-ons " style="color: black;">Yojsdfakldfs.</p>
-                </div>
-              </article>
+                <% if(contents != 'undefined'){%>
+                    <%contents?.forEach((content, i)=>{ %>
+                        <article class="card">
+                            <div class="image">
+                              <img src="<%= typeof content.image != undefined ? content.image : 'img/s2.jpg' %>" alt="mixed vegetable salad in a mason jar.">
+                              <p class="note text-light" style="background-color: #B3C2F2;"><%= typeof content.role != undefined ? content.role : 'Staff' %></p>
+                            </div>
+                            <div class="card__content">
+                              <h2 class="card_title " style="color: black;"><%= typeof content.fullName != undefined ? content.fullName : 'Staff' %></h2>
+                              <h3 class="label " style="color: black;">Add tdfds</h3>
+                            </div>
+                          </article>
+                    <%})%>
+                <%}%>
+              
           
               <article class="card">
                 <div class="image">

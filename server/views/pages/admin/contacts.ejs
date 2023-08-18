@@ -1,0 +1,65 @@
+<!-- Start preloader -->
+<div id="preloader"></div>
+<!-- End preloader -->
+
+<!-- navbar -->
+<%- include('../../partials/admin/nav') %>
+
+
+<%- include('../../partials/messages') %>
+<div id="layoutSidenav">
+    
+    <!-- sidenav -->
+    <%- include('../../partials/admin/sidenav') %>
+
+    <div id="layoutSidenav_content" >
+        <main>
+            
+            <div class="container-fluid px-4 row">
+               
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+                <div class="mb-4">
+                    <!-- Button trigger modal -->
+                
+                    
+                    <div class="container mt-5 px-2">
+
+                        <table class="table table-responsive-lg table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">fullName</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <%if(contacts != undefined) {%>
+                                    <%contacts.forEach((contact, i)=>{ %>
+                                        <tr>
+
+                                        <th scope="row"><%= i += 1 %></th>
+                                        <td><%= typeof contact.subject != undefined ? contact.subject : null%></td>
+                                        <td><%= typeof contact.names != undefined ? contact.names : null%></td>
+                                        <td><%= typeof contact.email != undefined ? contact.email : null%></td>
+                                        <td><%= typeof contact.message != undefined ? contact.message : null%></td>
+                                        <td>
+                                            <a class="p-1 btn btn-sm btn-danger" href="contacts/delete?id=<%= typeof contact.id != undefined ? contact.id : null%>">Delete</a>
+                                        </td>
+                                        </tr>
+                    
+                                    <%})%>
+                                <%}%>
+                            </tbody>
+                          </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
