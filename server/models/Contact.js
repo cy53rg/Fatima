@@ -1,10 +1,6 @@
-// const {sequelize, DBConnect} = require('../Database/connect')
-const {Sequelize, Model, DataTypes} = require('sequelize')
+const {sequelize,} = require('../Database/connect')
+const { Model, DataTypes} = require('sequelize')
 
-const sequelize = new Sequelize('fatima_school','root', null,{
-    host: 'localhost',
-    dialect: 'mysql'
-})
 
 class Contact extends Model{}
 

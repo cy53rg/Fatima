@@ -1,8 +1,5 @@
-const {Model, Sequelize, DataTypes} =  require('sequelize')
-const sequelize = new Sequelize('fatima_school','root', null,{
-    host: 'localhost',
-    dialect: 'mysql'
-})
+const {Model, DataTypes} =  require('sequelize')
+const {sequelize} = require('../Database/connect')
 
 class User extends Model{}
 

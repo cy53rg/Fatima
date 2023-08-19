@@ -1,6 +1,12 @@
 const {Sequelize} = require('sequelize')
+require('dotenv').config()
 // const User = require('../models/User');
-const sequelize = new Sequelize('fatima_school','root', null,{
+// const sequelize = new Sequelize('fatima_school','root', null,{
+//     host: 'localhost',
+//     dialect: 'mysql'
+// })
+
+const sequelize = new Sequelize(process.env.DB_NAME,'root', null,{
     host: 'localhost',
     dialect: 'mysql'
 })
