@@ -46,8 +46,12 @@ App.use(expressSession({
     saveUninitialized: true
 }))
 
+// passport 
+App.use(Passport.initialize());
+App.use(Passport.session());
 
-App.use(cookieParser())
+Passport.use(Strategy, userAuth())
+
 App.use(flash())
 
 App.use((req, res, next)=>{
@@ -55,16 +59,14 @@ App.use((req, res, next)=>{
     res.locals.successMsg = req.flash('successMsg')
     next()
 })
+App.use(cookieParser())
 DBConnect()
 
-// passport 
-App.use(Passport.initialize());
-App.use(Passport.session());
 
-Passport.use(Strategy, userAuth())
 // routes
 App.use('/', require('./routes/index'))
 App.use('/dashboard', require('./routes/dashboard'))
+App.use('*', require('./routes/404'))
 
 
 App.listen(PORT, ()=> {

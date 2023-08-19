@@ -21,7 +21,7 @@
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
                 <div class="w-100 d-flex justify-content-end m-2">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn" style="background-color: #492bc4; color: white" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Add to Gallery
                     </button>
                 </div>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn" style="background-color: #492bc4; color: white">Submit</button>
                           </form>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                             <a class="p-1 btn btn-sm btn-danger" href="gallery/delete?id=<%= typeof post.id != undefined ? post.id : null%>">Delete</a>
                                         </td>
                                         <td>
-                                            <a class="p-1 btn btn-sm btn-warning" href="gallery/edit?id=<%= typeof post.id != undefined ? post.id : null%>">Edit</a>
+                                            <a class="p-1 btn btn-sm btn-warning" href="/dashboard/gallery/edit?pst_id=<%= typeof post.id != undefined ? post.id : null%>">Edit</a>
                                         </td>
                                         </tr>
                     

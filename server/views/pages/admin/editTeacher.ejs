@@ -18,45 +18,70 @@
             <div class="container-fluid px-4 row">
                
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                 </ol>
                 <div class="mb-4">
                     
-                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Update image</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="/dashboard/staff/updateimage" method="POST" enctype="multipart/form-data">
+                              <div class="mb-3">
+                                <label for="image" class="form-label">image</label>
+                                <input type="hidden" name="id" value="<%= content.id != null ? content.id : null %>" required>
+                                <input type="file" name="image" required class="form-control" id="image">
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" class="btn" style="background-color: #492bc4; color: white">Submit</button>
+                        </form>
+                          </div>
+                      </div>
+                      </div>
+                  </div>
                     <div class="container mt-5 px-2">
 
                         <div class="modal-content">
                             <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Edit Staff</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn" style="background-color: #492bc4; color: white" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                              Update Image
+                          </button>
                             </div>
                             <div class="modal-body">
-                              <form action="/dashboard/staff" method="POST" enctype="multipart/form-data">
+                              <form action="/dashboard/staff/edit" method="POST" >
                                 <div class="mb-3">
                                   <label for="fullname" class="form-label">Fullname</label>
-                                  <input type="text" name="fullname" required class="form-control" id="fullname">
+                                <input type="hidden" name="id" value="<%= content.id != null ? content.id : null %>" required>
+                                  <input type="text" name="fullname"  value="<%= content.fullName != null ? content.fullName : '' %>" required class="form-control" id="fullname">
                                 </div>
                                 <div class="mb-3">
                                 <div class="mb-3">
                                   <label for="email" class="form-label">Email</label>
-                                  <input type="email" name="email" required class="form-control" id="email">
+                                  <input type="email" name="email" value="<%= content.email != null ? content.email : '' %>"  required class="form-control" id="email">
                                 </div>
                                 <div class="mb-3">
                                   <label for="role" class="form-label">Office</label>
-                                  <input type="text" name="role" required class="form-control" id="role">
+                                  <input type="text" name="role" value="<%= content.role != null ? content.role : '' %>"  required class="form-control" id="role">
                                 </div>
                                 <div class="mb-3">
                                   <label for="description" class="form-label">Description</label>
-                                  <textarea name="description" required class="form-control" id="password"></textarea>
+                                  <textarea name="description" required class="form-control" id="password"><%= content.description != null ? content.description : '' %></textarea>
                                 </div>
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                   <label for="image" class="form-label">image</label>
                                   <input type="file" name="image" required class="form-control" id="image">
-                                </div>
+                                </div> -->
                             </div>
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn" style="background-color: #492bc4; color: white">Submit</button>
                           </form>
                             </div>
                         </div>
