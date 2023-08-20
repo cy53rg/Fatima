@@ -6,7 +6,7 @@ require('dotenv').config()
 //     dialect: 'mysql'
 // })
 
-const sequelize = new Sequelize(process.env.DB_NAME,'root', null,{
+const sequelize = new Sequelize('fatima_development','root', null,{
     host: 'localhost',
     dialect: 'mysql'
 })
