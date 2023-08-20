@@ -41,10 +41,11 @@ App.use(Layout)
 App.set('view engine', 'ejs')
 
 App.use(expressSession({
-    secret: 'hello fatima', 
-    resave: true, 
-    saveUninitialized: true
-}))
+    secret: 'word',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }))
 
 // passport 
 App.use(Passport.initialize());
@@ -57,8 +58,10 @@ App.use(flash())
 App.use((req, res, next)=>{
     res.locals.errorMsg = req.flash('errorMsg')
     res.locals.successMsg = req.flash('successMsg')
+
     next()
-})
+});
+
 App.use(cookieParser())
 DBConnect()
 
