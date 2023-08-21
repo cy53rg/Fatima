@@ -1,15 +1,8 @@
 {
-  "name": "fatima_school",
+  "name": "server",
   "version": "1.0.0",
-  "description": "fatima school",
+  "description": "",
   "main": "index.js",
-  "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
@@ -29,6 +22,13 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
-    "sequelize-cli": "^6.6.1"
-  }
+    "sequelize-cli": "^6.6.1"},
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
